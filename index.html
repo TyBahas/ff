@@ -1,0 +1,253 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      
+
+      
+      //this graph is loaded on page load
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawSum); 
+
+
+      //##################################################################
+      //<!-- if the radio buttons are selected then these graphs change -->
+      //##################################################################
+      
+      function radioSumFunction(){
+        google.charts.setOnLoadCallback(drawSum);
+      };
+
+      function radioAvgFunction(){
+        google.charts.setOnLoadCallback(drawAvg);
+      };
+
+
+      //##################################################################
+      //<!-- Sum Bar Chart-->
+      //##################################################################
+
+      function drawSum() {
+        var data = google.visualization.arrayToDataTable([
+          ['', 'BN', 'DEF','K','QB','R/W/T','RB','TE','WR'],
+          ['3 Dollar Steak',158.42,53.0,57.0,145.9,36.6,137.1,33.7,105.6],
+          ['Bronny Football',121.7,46.0,72.0,129.82,43.1,173.3,40.9,146.4],
+          ['Calrissian Colts',137.0,46.0,50.0,117.1,130.0,199.1,24.8,115.0],
+          ['Charlottesville Kaepernicks',239.0,45.0,41.0,126.34,49.7,121.7,60.7,142.78],
+          ['Icebox',159.4,38.0,49.0,120.34,45.8,105.1,33.9,117.8],
+          ['Mahom-osexuals',282.48,69.0,47.0,154.7,52.2,133.2,44.5,106.2],
+          ['Optimize',168.72,60.0,48.0,88.8,44.9,129.9,50.6,126.1],
+          ['Scruffy Nerfherders',192.54,60.0,54.0,93.92,37.9,176.4,60.0,109.8],
+          ['THE ROBERTSONS',198.58,25.0,58.0,116.22,72.8,64.7,29.3,167.0],
+          ['The Eastwatch Ice Dragons',247.28,48.0,28.0,113.46,59.9,156.4,30.3,182.6],
+          ['buckfutt fc (Alex)',188.98,34.0,59.0,150.8,43.9,80.1,64.8,119.8],
+          ['buckfutt fc (Ryan)',146.7,49.0,42.0,122.22,63.5,200.8,10.9,99.7]
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Total Points by Position',
+            subtitle: '2018 Season'
+          },
+          hAxis: {
+            textStyle: {
+              fontSize: 11
+            },
+            slantedText:true,
+            slantedTextAngle:-45,
+          
+          },
+          bars: 'vertical',
+          vAxis: {format: 'decimal'},
+          height: 550,
+          width: 1600,
+          bar: { groupWidth: "75%" },
+          legend: { position: 'top', alignment: 'center' }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('barChart'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));      
+      }
+
+
+
+      //##################################################################
+      //<!-- Average Bar Chart -->
+      //##################################################################
+
+
+      function drawAvg() {
+        var data = google.visualization.arrayToDataTable([
+          ['', 'BN', 'DEF','K','QB','R/W/T','RB','TE','WR'],
+          ['3 Dollar Steak',26.4,8.83,9.5,24.32,6.1,22.85,5.62,17.6],
+          ['Bronny Football',20.28,7.67,12.0,21.64,7.18,28.88,6.82,24.4],
+          ['Calrissian Colts',22.83,7.67,8.33,19.52,21.67,33.18,4.13,19.17],
+          ['Charlottesville Kaepernicks',39.83,7.5,6.83,21.06,8.28,20.28,10.12,23.8],
+          ['Icebox',26.57,6.33,8.17,20.06,7.63,17.52,5.65,19.63],
+          ['Mahom-osexuals',47.08,11.5,7.83,25.78,8.7,22.2,7.42,17.7],
+          ['Optimize',28.12,10.0,8.0,14.8,7.48,21.65,8.43,21.02],
+          ['Scruffy Nerfherders',32.09,10.0,9.0,15.65,6.32,29.4,10.0,18.3],
+          ['THE ROBERTSONS',33.1,4.17,9.67,19.37,12.13,10.78,4.88,27.83],
+          ['The Eastwatch Ice Dragons',41.21,8.0,4.67,18.91,9.98,26.07,5.05,30.43],
+          ['buckfutt fc (Alex)',31.5,5.67,9.83,25.13,7.32,13.35,10.8,19.97],
+          ['buckfutt fc (Ryan)',24.45,8.17,7.0,20.37,10.58,33.47,1.82,16.62]
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Average Points by Position',
+            subtitle: '2018 Season'
+          },
+          hAxis: {
+            titleTextStyle: {
+              color: '#FF0000',            
+            },
+            textStyle: {
+              fontSize: 11
+            },
+            slantedText:true,
+            slantedTextAngle:-45,
+          
+          },
+          bars: 'vertical',
+          vAxis: {format: 'decimal'},
+          height: 550,
+          width: 1600,
+          bar: { groupWidth: "75%" },
+          legend: { position: 'top', alignment: 'center' }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('barChart'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));      
+      }
+
+
+
+      //##################################################################
+      //<!-- Scatter Plot -->
+      //##################################################################
+
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['For','3 Dollar Steak','Bronny Football','Calrissian Colts','Charlottesville Kaepernicks','Icebox','Mahom-osexuals','Optimize','Scruffy Nerfherders','THE ROBERTSONS','The Eastwatch Ice Dragons','buckfutt fc (Alex)','buckfutt fc (Ryan)'],
+          [509.94,NaN,NaN,NaN,NaN,611.94,NaN,NaN,NaN,NaN,NaN,NaN,NaN],
+          [533.12,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,607.82,NaN,NaN,NaN],
+          [548.3,NaN,NaN,NaN,NaN,NaN,NaN,628.94,NaN,NaN,NaN,NaN,NaN],
+          [552.44,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,545.9,NaN],
+          [568.9,552.24,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN],
+          [587.22,NaN,NaN,NaN,587.66,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN],
+          [588.02,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,608.3],
+          [592.02,NaN,NaN,NaN,NaN,NaN,NaN,NaN,592.38,NaN,NaN,NaN,NaN],
+          [606.8,NaN,NaN,NaN,NaN,NaN,565.84,NaN,NaN,NaN,NaN,NaN,NaN],
+          [618.66,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,558.32,NaN,NaN],
+          [651.52,NaN,595.18,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN],
+          [681.8,NaN,NaN,584.22,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN],
+
+
+
+        ]);
+
+        var scatterOptions = {
+          title: 'Points For vs Points Against',
+          hAxis: {title: 'For'},
+          vAxis: {title: 'Against'},
+          legend: 'none',
+          height: 750,
+          width: '80%'
+        };
+
+        var chart = new google.visualization.ScatterChart(document.getElementById('scatterChart'));
+
+        chart.draw(data, scatterOptions);
+      }
+
+
+      //##################################################################
+      //<!-- Table  -->
+      //##################################################################
+
+
+      google.charts.load('current', {'packages':['table']});
+      google.charts.setOnLoadCallback(drawTable);
+
+      function drawTable() {
+        var data = google.visualization.arrayToDataTable([
+          ['', 'BN', 'DEF','K','QB','R/W/T','RB','TE','WR'],
+          ['3 Dollar Steak',26.4,8.83,9.5,24.32,6.1,22.85,5.62,17.6],
+          ['Bronny Football',20.28,7.67,12.0,21.64,7.18,28.88,6.82,24.4],
+          ['Calrissian Colts',22.83,7.67,8.33,19.52,21.67,33.18,4.13,19.17],
+          ['Charlottesville Kaepernicks',39.83,7.5,6.83,21.06,8.28,20.28,10.12,23.8],
+          ['Icebox',26.57,6.33,8.17,20.06,7.63,17.52,5.65,19.63],
+          ['Mahom-osexuals',47.08,11.5,7.83,25.78,8.7,22.2,7.42,17.7],
+          ['Optimize',28.12,10.0,8.0,14.8,7.48,21.65,8.43,21.02],
+          ['Scruffy Nerfherders',32.09,10.0,9.0,15.65,6.32,29.4,10.0,18.3],
+          ['THE ROBERTSONS',33.1,4.17,9.67,19.37,12.13,10.78,4.88,27.83],
+          ['The Eastwatch Ice Dragons',41.21,8.0,4.67,18.91,9.98,26.07,5.05,30.43],
+          ['buckfutt fc (Alex)',31.5,5.67,9.83,25.13,7.32,13.35,10.8,19.97],
+          ['buckfutt fc (Ryan)',24.45,8.17,7.0,20.37,10.58,33.47,1.82,16.62]
+        ]);
+
+
+        var tableOptions = {
+          title: 'Points For vs Points Against',
+          showRowNumber: true,
+          width: '40%',
+          height: '40%'
+        };
+
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+
+        table.draw(data, tableOptions);
+      }      
+
+
+
+
+  </script>
+
+  <style>
+
+    body{
+      display: block;
+    }
+
+    #barChart{
+      height: 575px;
+      width: 100%;
+      padding-top: 25px;
+      padding-bottom: 1px;
+    }
+
+
+    #formDiv {
+      display: block;
+    }
+ 
+   </style>
+
+  </head>
+  <body>
+
+    <div id='container'>
+      <div align='center' id="barChart"></div>
+      <div id='formDiv'>
+        <form align = 'center'>
+          <label class="radio-inline">
+            <input type="radio" name="optradio" id='radio' onchange='radioSumFunction()' checked> Sum
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="optradio" id='radio' onchange='radioAvgFunction()'> Average
+          </label>
+        </form>
+      </div>
+      <div id='scatterChart' align='center'></div>
+      <div id='table_div' align='center'></div>
+    </div>
+
+  </body>
+</html>
