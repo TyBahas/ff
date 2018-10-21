@@ -3,13 +3,10 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       
-
       
       //this graph is loaded on page load
       google.charts.load('current', {'packages':['bar']});
       google.charts.setOnLoadCallback(drawSum); 
-
-
       //##################################################################
       //<!-- if the radio buttons are selected then these graphs change -->
       //##################################################################
@@ -17,16 +14,12 @@
       function radioSumFunction(){
         google.charts.setOnLoadCallback(drawSum);
       };
-
       function radioAvgFunction(){
         google.charts.setOnLoadCallback(drawAvg);
       };
-
-
       //##################################################################
       //<!-- Sum Bar Chart-->
       //##################################################################
-
       function drawSum() {
         var data = google.visualization.arrayToDataTable([
           ['', 'BN', 'DEF','K','QB','R/W/T','RB','TE','WR'],
@@ -43,7 +36,6 @@
           ['buckfutt fc (Alex)',188.98,34.0,59.0,150.8,43.9,80.1,64.8,119.8],
           ['buckfutt fc (Ryan)',146.7,49.0,42.0,122.22,63.5,200.8,10.9,99.7]
         ]);
-
         var options = {
           chart: {
             title: 'Total Points by Position',
@@ -64,19 +56,12 @@
           bar: { groupWidth: "75%" },
           legend: { position: 'top', alignment: 'center' }
         };
-
         var chart = new google.charts.Bar(document.getElementById('barChart'));
-
         chart.draw(data, google.charts.Bar.convertOptions(options));      
       }
-
-
-
       //##################################################################
       //<!-- Average Bar Chart -->
       //##################################################################
-
-
       function drawAvg() {
         var data = google.visualization.arrayToDataTable([
           ['', 'BN', 'DEF','K','QB','R/W/T','RB','TE','WR'],
@@ -93,7 +78,6 @@
           ['buckfutt fc (Alex)',31.5,5.67,9.83,25.13,7.32,13.35,10.8,19.97],
           ['buckfutt fc (Ryan)',24.45,8.17,7.0,20.37,10.58,33.47,1.82,16.62]
         ]);
-
         var options = {
           chart: {
             title: 'Average Points by Position',
@@ -117,21 +101,14 @@
           bar: { groupWidth: "75%" },
           legend: { position: 'top', alignment: 'center' }
         };
-
         var chart = new google.charts.Bar(document.getElementById('barChart'));
-
         chart.draw(data, google.charts.Bar.convertOptions(options));      
       }
-
-
-
       //##################################################################
       //<!-- Scatter Plot -->
       //##################################################################
-
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
-
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['For','3 Dollar Steak','Bronny Football','Calrissian Colts','Charlottesville Kaepernicks','Icebox','Mahom-osexuals','Optimize','Scruffy Nerfherders','THE ROBERTSONS','The Eastwatch Ice Dragons','buckfutt fc (Alex)','buckfutt fc (Ryan)'],
@@ -147,34 +124,23 @@
           [618.66,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,558.32,NaN,NaN],
           [651.52,NaN,595.18,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN],
           [681.8,NaN,NaN,584.22,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN],
-
-
-
         ]);
-
         var scatterOptions = {
           title: 'Points For vs Points Against',
           hAxis: {title: 'For'},
           vAxis: {title: 'Against'},
           legend: 'none',
           height: 750,
-          width: '80%'
+          width: 900
         };
-
         var chart = new google.visualization.ScatterChart(document.getElementById('scatterChart'));
-
         chart.draw(data, scatterOptions);
       }
-
-
       //##################################################################
       //<!-- Table  -->
       //##################################################################
-
-
       google.charts.load('current', {'packages':['table']});
       google.charts.setOnLoadCallback(drawTable);
-
       function drawTable() {
         var data = google.visualization.arrayToDataTable([
           ['', 'BN', 'DEF','K','QB','R/W/T','RB','TE','WR'],
@@ -191,38 +157,27 @@
           ['buckfutt fc (Alex)',31.5,5.67,9.83,25.13,7.32,13.35,10.8,19.97],
           ['buckfutt fc (Ryan)',24.45,8.17,7.0,20.37,10.58,33.47,1.82,16.62]
         ]);
-
-
         var tableOptions = {
           title: 'Points For vs Points Against',
           showRowNumber: true,
           width: '40%',
           height: '40%'
         };
-
         var table = new google.visualization.Table(document.getElementById('table_div'));
-
         table.draw(data, tableOptions);
       }      
-
-
-
-
   </script>
 
   <style>
-
     body{
       display: block;
     }
-
     #barChart{
       height: 575px;
       width: 100%;
       padding-top: 25px;
       padding-bottom: 1px;
     }
-
 
     #formDiv {
       display: block;
