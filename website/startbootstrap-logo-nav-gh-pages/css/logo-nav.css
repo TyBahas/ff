@@ -13,3 +13,32 @@ body {
     padding-top: 56px;
   }
 }
+
+.outer {
+  display: table;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border: 3px solid black;
+  outline-style: solid;
+  outline-color: red;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+  border: 3px solid black;
+  outline-style: solid;
+  outline-color: blue;
+}
+
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  margin-top: 15px;
+  border: 3px solid black;
+  outline-style: solid;
+  outline-color: green;
+  /*whatever width you want*/
+}

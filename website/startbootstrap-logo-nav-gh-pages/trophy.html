@@ -31,16 +31,16 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="index.html">Charts
-                <span class="sr-only">(current)</span>
-              </a>
+            <li class="nav-item ">
+              <a class="nav-link" href="index.html">Charts</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="awards.html">Awards & Rankings</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="trophy.html">Trophy Case</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="trophy.html">Trophy Case
+                <span class="sr-only">(current)</span>
+              </a>
             </li>
           </ul>
         </div>
@@ -51,18 +51,7 @@
     <div class="outer">
       <div class="middle">
         <div class="inner">
-          <div align='center' id="barChart"></div>
-          <div id='formDiv'>
-            <form align = 'center'>
-              <label class="radio-inline">
-                <input type="radio" name="optradio" id='radio' onchange='radioSumFunction()' checked> Sum
-              </label>
-              <label class="radio-inline">
-                <input type="radio" name="optradio" id='radio' onchange='radioAvgFunction()'> Average
-              </label>
-            </form>
-          </div>
-          <div id='scatterChart' align='center'></div>     
+                  
         </div>
       </div>
     </div>
@@ -73,6 +62,7 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="charts.js"></script>
+
   </body>
 
 </html>
