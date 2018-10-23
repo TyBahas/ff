@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[2]:
+# In[338]:
 
 
 import pandas as pd
@@ -9,14 +9,14 @@ import numpy as np
 import os
 
 
-# In[3]:
+# In[339]:
 
 
 directory = 'C:/Users/bahasty/Desktop/ff/scores'
 pd.set_option('display.max_rows', 500)
 
 
-# In[54]:
+# In[340]:
 
 
 def nameChanger(dataframe):
@@ -35,7 +35,7 @@ def nameChanger(dataframe):
     
 
 
-# In[55]:
+# In[341]:
 
 
 #weekly score parser
@@ -73,13 +73,13 @@ def WeekParser (xlsx, sheetnum):
         
 
 
-# In[56]:
+# In[342]:
 
 
 #creates empty dataframe
 columns = ['Team','Week','Position','Points']
 dataframe = pd.DataFrame(columns=columns)
-
+weekCount = 0
 #iterate over files in scores directory
 x = 1
 for filename in os.listdir(directory):
@@ -100,28 +100,11 @@ for filename in os.listdir(directory):
             dataframe = pd.concat(frames)
         
         sheetnum = sheetnum+1
-
+    weekCount = weekCount+1
         
 
 
-# In[57]:
-
-
-
-############################################
-#week over week output  ready for Google ChartPaste
-############################################
-
-df_weekly = dataframe.unstack(level=-1)
-df_weekly = df_weekly.reset_index()
-df_weekly.columns = df_weekly.columns.droplevel()
-df_weekly.columns = ['Team','Week','BN','DEF','K','QB','R/W/T','RB','TE','WR']
-nameChanger(df_weekly)
-df_weekly['String'] = '[\'' + df_weekly['Team'].map(str)+'\',\''+ df_weekly['Week'].map(str) +'\',' + df_weekly['BN'].map(str) +','+ df_weekly['DEF'].map(str)+','+ df_weekly['K'].map(str)+','+ df_weekly['QB'].map(str)+','+ df_weekly['R/W/T'].map(str)  +','+ df_weekly['RB'].map(str)  +','+ df_weekly['TE'].map(str)  +','+ df_weekly['WR'].map(str)+'],'     
-df_weekly.to_csv('weekly.csv', index=False)
-
-
-# In[58]:
+# In[344]:
 
 
 
@@ -140,7 +123,7 @@ df_sum['String'] = '[\'' + df_sum['Team'].map(str) +'\',' + df_sum['BN'].map(str
 df_sum.to_csv('sum.csv', index=False)
 
 
-# In[59]:
+# In[345]:
 
 
 
@@ -159,7 +142,7 @@ df_avg['String'] = '[\'' + df_avg['Team'].map(str) +'\',' + df_avg['BN'].map(str
 df_avg.to_csv('average.csv', index=False)
 
 
-# In[62]:
+# In[346]:
 
 
 
@@ -184,27 +167,80 @@ scatter['String'] = scatter['String'].str.replace('nan','NaN')
 scatter.to_csv('scatter.csv', index=False)
 
 
-# In[95]:
+# In[350]:
 
 
 ############################################
 #Power Ranking
 ############################################
 
-#calculates Team Average scoring and z-Score ranking
-powerRanking = dataframe.reset_index()
-nameChanger(powerRanking)
-powerRanking = powerRanking.loc[powerRanking['Position'] != 'BN']
-powerRanking = powerRanking.groupby(['Team','Week']).sum()
-powerRanking = powerRanking.reset_index()
-powerRanking = powerRanking.groupby(['Team']).mean()
-powerRanking = powerRanking.reset_index()
-teamMean = powerRanking['Points'].mean()
-teamSTD = powerRanking['Points'].std()
-powerRanking['STD'] = teamSTD
-powerRanking['Mean'] = teamMean
-powerRanking['Z-score'] = (powerRanking['Points'] - powerRanking['Mean'] )/ powerRanking['STD']
 
-powerRanking.columns = ['Team','Average Weekly Points','Standard Dev','League Mean','Z-Score Ranking']
-powerRanking.to_csv('powerranking',index=False)
+#creates empty dataframe to collect the last 3 weeks of scores
+columns = ['Team','Week','Position','Points']
+powerRankingTemp = pd.DataFrame(columns=columns)
+
+powerRanking = dataframe.reset_index()
+powerRanking = powerRanking.loc[powerRanking['Position'] != 'BN']
+nameChanger(powerRanking)
+
+
+
+#creates an array of Week variables that will be used to pull data
+weekCountArray = []
+x=0
+while x <= 2:
+    
+    if x == 0:
+        weekCountArray.append('Week'+ str(weekCount))        
+    else:
+        weekCountArray.append('Week'+ str(weekCount-x))
+    x+=1
+
+
+#collects the last three weeks found in the weekCountArray and appends them to powerRankingTemp
+y = 0
+for i in weekCountArray:
+    temp = powerRanking.loc[powerRanking['Week'] == weekCountArray[y]]                  
+    frames = [powerRankingTemp,temp]
+    powerRankingTemp = pd.concat(frames)
+    y+=1
+
+    
+#Z-Scores based on last 3 Weeks scores
+powerRankingLast3Weeks = powerRankingTemp
+powerRankingLast3Weeks = powerRankingLast3Weeks.groupby(['Team','Week']).sum()
+powerRankingLast3Weeks = powerRankingLast3Weeks.reset_index()
+powerRankingLast3Weeks = powerRankingLast3Weeks.groupby(['Team']).mean()
+powerRankingLast3Weeks = powerRankingLast3Weeks.reset_index()
+teamMean = powerRankingLast3Weeks['Points'].mean()
+teamSTD = powerRankingLast3Weeks['Points'].std()
+powerRankingLast3Weeks['STD'] = teamSTD
+powerRankingLast3Weeks['Mean'] = teamMean
+powerRankingLast3Weeks['Z-score'] = (powerRankingLast3Weeks['Points'] - powerRankingLast3Weeks['Mean'] )/ powerRankingLast3Weeks['STD']
+powerRankingLast3Weeks.columns = ['Team','Average Weekly Points','Standard Dev','League Mean','Z-Score Ranking']
+  
+    
+#Z-Scores based on median scores
+powerRankingMedian = powerRanking.groupby(['Team','Week']).sum()
+powerRankingMedian = powerRankingMedian.reset_index()
+powerRankingMedian = powerRankingMedian.groupby(['Team']).median()
+powerRankingMedian = powerRankingMedian.reset_index()
+teamMean = powerRankingMedian['Points'].mean()
+teamSTD = powerRankingMedian['Points'].std()
+powerRankingMedian['STD'] = teamSTD
+powerRankingMedian['Mean'] = teamMean
+powerRankingMedian['Z-score'] = (powerRankingMedian['Points'] - powerRankingMedian['Mean'] )/ powerRankingMedian['STD']
+powerRankingMedian    
+
+#join power ranking
+powerRankingFinal = pd.merge(powerRankingMedian,powerRankingLast3Weeks, left_on='Team', right_on='Team', how='inner')
+
+#formatting
+powerRankingFinal = powerRankingFinal[['Team','Z-score','Z-Score Ranking']]
+powerRankingFinal['Combined Scores'] = powerRankingFinal[['Z-score','Z-Score Ranking']].mean(axis=1)
+powerRankingFinal['Rank'] = powerRankingFinal['Combined Scores'].rank(ascending=False)
+powerRankingFinal = powerRankingFinal.sort_values(by=['Rank'])
+powerRankingFinal= powerRankingFinal[['Team','Rank']]
+powerRankingFinal['String'] = '[\'' + powerRankingFinal['Team'].map(str) +'\',' + powerRankingFinal['Rank'].map(str)+'],'     
+powerRankingFinal.to_csv('powerRanking', index=False)
 
