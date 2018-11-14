@@ -23,18 +23,19 @@
       function drawSum() {
         var data = google.visualization.arrayToDataTable([
           ['', 'BN', 'DEF','K','QB','R/W/T','RB','TE','WR'],
-          ['Nick',185.62,74.0,62.0,162.68,39.6,141.4,36.3,121.5],
-          ['Trevor',132.8,58.0,78.0,155.48,63.4,194.1,47.6,170.0],
-          ['Brian',159.38,78.0,63.0,137.2,135.1,227.2,29.1,131.9],
-          ['Dan',260.4,50.0,54.0,143.88,69.1,142.9,71.9,173.98],
-          ['Rebecca',171.6,40.0,53.0,128.26,49.1,120.0,44.2,129.9],
-          ['Tyler',282.48,72.0,52.0,187.52,65.3,195.2,51.0,125.1],
-          ['Dustin',201.32,63.0,55.0,101.52,49.1,152.1,55.4,161.92],
-          ['Johnny',242.54,74.0,62.0,116.66,52.6,206.6,73.8,132.1],
-          ['The Robertson',231.58,32.0,66.0,127.08,75.5,81.5,29.6,192.4],
-          ['Tony',275.02,51.0,35.0,135.14,61.8,179.6,31.9,204.6],
-          ['Alex',226.58,31.0,68.0,170.06,48.2,113.6,74.3,129.6],
-          ['Ryan',162.2,68.0,52.0,138.7,69.1,210.0,14.0,106.3]
+          ['Nick',307.92,84.0,85.0,229.82,64.7,212.3,56.9,159.0],
+          ['Trevor',204.6,86.0,118.0,219.34,78.3,316.7,62.7,254.8],
+          ['Brian',223.54,99.0,93.0,175.24,193.8,298.7,41.4,175.3],
+          ['Dan',313.0,91.0,72.0,197.64,88.1,209.9,78.6,252.58],
+          ['Rebecca',203.62,74.0,77.0,206.16,83.0,176.8,61.5,186.9],
+          ['Tyler',378.44,117.0,68.0,260.4,83.4,291.1,72.9,202.92],
+          ['Dustin',286.66,58.0,74.0,143.1,57.1,271.6,72.0,224.62],
+          ['Johnny',325.8,79.0,81.0,168.52,88.1,265.8,125.7,152.0],
+          ['The Robertson',338.24,56.0,92.0,205.3,91.9,137.0,47.2,277.8],
+          ['Tony',359.1,75.0,58.0,179.58,94.2,293.1,38.3,279.5],
+          ['Alex',271.18,56.0,89.0,241.2,61.4,194.5,114.7,200.4],
+          ['Ryan',186.5,65.0,71.0,215.56,86.7,315.0,48.8,143.5]
+
 
         ]);
 
@@ -75,18 +76,19 @@
       function drawAvg() {
         var data = google.visualization.arrayToDataTable([
           ['', 'BN', 'DEF','K','QB','R/W/T','RB','TE','WR'],
-          ['Nick',26.52,10.57,8.86,23.24,5.66,20.2,5.19,17.36],
-          ['Trevor',18.97,8.29,11.14,22.21,9.06,27.73,6.8,24.29],
-          ['Brian',22.77,11.14,9.0,19.6,19.3,32.46,4.16,18.84],
-          ['Dan',37.2,7.14,7.71,20.55,9.87,20.41,10.27,24.85],
-          ['Rebecca',24.51,5.71,7.57,18.32,7.01,17.14,6.31,18.56],
-          ['Tyler',40.35,10.29,7.43,26.79,9.33,27.89,7.29,17.87],
-          ['Dustin',28.76,9.0,7.86,14.5,7.01,21.73,7.91,23.13],
-          ['Johnny',34.65,10.57,8.86,16.67,7.51,29.51,10.54,18.87],
-          ['The Robertson',33.08,4.57,9.43,18.15,10.79,11.64,4.23,27.49],
-          ['Tony',39.29,7.29,5.0,19.31,8.83,25.66,4.56,29.23],
-          ['Alex',32.37,4.43,9.71,24.29,6.89,16.23,10.61,18.51],
-          ['Ryan',23.17,9.71,7.43,19.81,9.87,30.0,2.0,15.19]
+          ['Nick',30.79,8.4,8.5,22.98,6.47,21.23,5.69,15.9],
+          ['Trevor',20.46,8.6,11.8,21.93,7.83,31.67,6.27,25.48],
+          ['Brian',22.35,9.9,9.3,17.52,19.38,29.87,4.14,17.53],
+          ['Dan',31.3,9.1,7.2,19.76,8.81,20.99,7.86,25.26],
+          ['Rebecca',20.36,7.4,7.7,20.62,8.3,17.68,6.15,18.69],
+          ['Tyler',37.84,11.7,6.8,26.04,8.34,29.11,7.29,20.29],
+          ['Dustin',28.67,5.8,7.4,14.31,5.71,27.16,7.2,22.46],
+          ['Johnny',32.58,7.9,8.1,16.85,8.81,26.58,12.57,15.2],
+          ['The Robertson',33.82,5.6,9.2,20.53,9.19,13.7,4.72,27.78],
+          ['Tony',35.91,7.5,5.8,17.96,9.42,29.31,3.83,27.95],
+          ['Alex',27.12,5.6,8.9,24.12,6.14,19.45,11.47,20.04],
+          ['Ryan',18.65,6.5,7.1,21.56,8.67,31.5,4.88,14.35]
+
 
         ]);
 
@@ -131,18 +133,19 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['For','Alex','Brian','Dan','Dustin','Johnny','Nick','Rebecca','Ryan','The Robertson','Tony','Trevor','Tyler'],
-          [564.46,NaN,NaN,NaN,NaN,NaN,NaN,737.68,NaN,NaN,NaN,NaN,NaN],
-          [604.18,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,677.8,NaN,NaN,NaN],
-          [634.8,635.64,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN],
-          [637.48,NaN,NaN,NaN,NaN,NaN,667.3,NaN,NaN,NaN,NaN,NaN,NaN],
-          [638.04,NaN,NaN,NaN,711.3,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN],
-          [658.0,NaN,NaN,NaN,NaN,NaN,NaN,NaN,679.36,NaN,NaN,NaN,NaN],
-          [699.04,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,677.82,NaN,NaN],
-          [705.76,NaN,NaN,728.98,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN],
-          [717.76,NaN,NaN,NaN,NaN,646.9,NaN,NaN,NaN,NaN,NaN,NaN,NaN],
-          [748.12,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,684.38],
-          [766.58,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,663.76,NaN],
-          [801.3,NaN,664.6,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN]
+          [1017.68,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,1041.82,NaN,NaN],
+          [1076.24,NaN,922.04,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN],
+          [1095.72,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,972.12],
+          [1135.84,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,979,NaN],
+          [865.36,NaN,NaN,NaN,NaN,NaN,NaN,1045.46,NaN,NaN,NaN,NaN,NaN],
+          [891.72,NaN,NaN,NaN,NaN,NaN,928.82,NaN,NaN,NaN,NaN,NaN,NaN],
+          [900.42,NaN,NaN,NaN,1046.78,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN],
+          [907.3,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,971.44,NaN,NaN,NaN],
+          [945.46,NaN,NaN,NaN,NaN,NaN,NaN,NaN,933.78,NaN,NaN,NaN,NaN],
+          [957.24,974.24,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN],
+          [960.12,NaN,NaN,NaN,NaN,924.48,NaN,NaN,NaN,NaN,NaN,NaN,NaN],
+          [989.82,NaN,NaN,1002.94,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN]
+
 
 
 
@@ -174,19 +177,19 @@
 
       function drawTable() {
         var data = google.visualization.arrayToDataTable([
-	      ['Team Owner', 'Power Ranking'],
 	      ['Trevor',1.0],
-		  ['Brian',2.0],
-		  ['Tyler',3.0],
-		  ['Dan',4.0],
-		  ['Johnny',5.0],
-		  ['Tony',6.0],
-		  ['Dustin',7.0],
-		  ['Alex',8.0],
-		  ['Ryan',9.0],
-		  ['The Robertson',10.0],
-		  ['Nick',11.0],
-		  ['Rebecca',12.0]
+        ['Tyler',2.0],
+        ['Tony',3.0],
+        ['Alex',4.0],
+        ['Brian',5.0],
+        ['The Robertson',6.0],
+        ['Ryan',7.0],
+        ['Dan',8.0],
+        ['Dustin',9.0],
+        ['Rebecca',10.0],
+        ['Johnny',11.0],
+        ['Nick',12.0]
+
 
         ]);
 
