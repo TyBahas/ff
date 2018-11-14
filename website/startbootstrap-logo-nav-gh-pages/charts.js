@@ -168,16 +168,17 @@
 
 
       //##################################################################
-      //<!-- Table  -->
+      //<!-- Power Rankings  -->
       //##################################################################
 
 
       google.charts.load('current', {'packages':['table']});
-      google.charts.setOnLoadCallback(drawTable);
+      google.charts.setOnLoadCallback(drawRankTable);
 
-      function drawTable() {
-        var data = google.visualization.arrayToDataTable([
-	      ['Trevor',1.0],
+      function drawRankTable() {
+        var prdata = google.visualization.arrayToDataTable([
+        ['Team Owner', 'Power Ranking'],
+        ['Trevor',1.0],
         ['Tyler',2.0],
         ['Tony',3.0],
         ['Alex',4.0],
@@ -189,21 +190,99 @@
         ['Rebecca',10.0],
         ['Johnny',11.0],
         ['Nick',12.0]
-
-
         ]);
 
 
-        var tableOptions = {
-          title: 'Points For vs Points Against',
-          showRowNumber: true,
-          width: '40%',
-          height: '40%'
+        var tableOptionsPR = {
+          title: 'Power Ranking',
+          showRowNumber: false,
+          width: '50%',
+          height: '100%'
         };
 
-        var table = new google.visualization.Table(document.getElementById('table_div'));
+        var prtable = new google.visualization.Table(document.getElementById('pr_table_div'));
 
-        table.draw(data, tableOptions);
+        prtable.draw(prdata, tableOptionsPR);
       }      
 
 
+      //##################################################################
+      //<!-- Playoff chan  -->
+      //##################################################################
+
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawPlayoffChart);
+       function drawPlayoffChart() {
+        var playoffdata = google.visualization.arrayToDataTable([
+          ['Team', 'Playoff Chance', 'Robertson Chance'],
+            [
+              "Colts",
+              99,
+              0
+            ],
+            [
+              "Bronny",
+              99,
+              0
+            ],
+            [
+              "Mahomo",
+              99,
+              0
+            ],
+            [
+              "Kaepernick",
+              89,
+              1
+            ],
+            [
+              "Dragons",
+              89,
+              1
+            ],
+            [
+              "BFC",
+              53,
+              14
+            ],
+            [
+              "Nerf",
+              21.5,
+              52
+            ],
+            [
+              "Alex",
+              17.5,
+              52
+            ],
+            [
+              "3Dollar",
+              15.5,
+              52
+            ],
+            [
+              "Optimize",
+              15.5,
+              52
+            ],
+            [
+              "Icebox",
+              1,
+              89
+            ],
+            [
+              "Robertson",
+              1,
+              89
+            ],
+        ]);
+         var playoffoptions = {
+          chart: {
+            title: 'Columbus Beer League Hopes and Dreams',
+            subtitle: 'Week 10 Chances',
+          },
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+         var playoffchart = new google.charts.Bar(document.getElementById('playoffChances'));
+         playoffchart.draw(playoffdata, google.charts.Bar.convertOptions(playoffoptions));
+      }

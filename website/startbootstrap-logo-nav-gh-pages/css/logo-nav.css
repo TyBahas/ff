@@ -19,26 +19,104 @@ body {
   position: absolute;
   height: 100%;
   width: 100%;
-  border: 3px solid black;
-  outline-style: solid;
-  outline-color: red;
 }
 
 .middle {
   display: table-cell;
   vertical-align: middle;
-  border: 3px solid black;
-  outline-style: solid;
-  outline-color: blue;
 }
 
 .inner {
   margin-left: auto;
   margin-right: auto;
   width: 90%;
-  margin-top: 15px;
-  border: 3px solid black;
-  outline-style: solid;
-  outline-color: green;
+  margin-top: 50px;
+  
+
   /*whatever width you want*/
+}
+
+/* inner div of the awards page only*/
+.inner-awards{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top: 5px;
+  margin-bottom: 75px;
+}
+
+.awards-div {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  margin-top: 2%;
+  clear: both;
+  height: 400px; /*Just for testing*/
+  
+  
+}
+
+.season-award {
+  float: left;
+  width: 50%;
+  height: 100%;
+  text-align: center;
+  
+}
+
+.week-award{
+  width: 50%;
+  height: 100%;
+  float: right;
+  text-align: center;
+}
+
+.scatterplot-div{
+  height: 700px;
+}
+
+.trophy-room{
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 100px;
+  
+  
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+  overflow-x: auto;
+
+}
+
+td, th {
+  text-align: center;
+  padding: 8px;
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+
+.year{
+  font-size: 2vw;
+  font-weight: bold;
+  margin-top: 175px;
+}
+
+.trophy-column-header{
+  font-size: 2vw;
+}
+
+.award-winners{
+  font-size: 1.5vw;
 }
